@@ -1,0 +1,221 @@
+@media (max-width: 768px) {
+  /* ==============================================================================
+     Sekce: Úprava kontejneru obsahu
+     ==============================================================================
+  */
+  .content-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  /* ==============================================================================
+     Sekce: Navigace a menu
+     ==============================================================================
+  */
+  nav {
+    position: relative;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: static;
+    top: 60px;
+    left: 0;
+    right: 0;
+  }
+  .menu a {
+    font-size: 16px;
+  }
+  .navigation__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.2s;
+  }
+  #theme-toggle {
+    align-self: flex-end;
+    margin-bottom: 10px;
+
+    font-size: 24px;
+    position: relative;
+    z-index: 999;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+  /* ==============================================================================
+     Sekce: Ikony pro navigaci (Light/Dark mode)
+     ==============================================================================
+  */
+  /* Light mode */
+  .hamburger-icon,
+  .close-icon {
+    font-size: 30px;
+    color: black;
+  }
+  /* Dark mode */
+  body.dark-mode .hamburger-icon,
+  body.dark-mode .close-icon {
+    color: white; /* Barva ikon v dark mode */
+  }
+  .menu.active {
+    display: flex;
+  }
+  /* ==============================================================================
+     Sekce: Vypnutí hover efektů
+     ==============================================================================
+  */
+  #onas img:hover,
+  .film-card img:hover,
+  .photo-container:hover img {
+    transform: none !important;
+  }
+  /* ==============================================================================
+     Sekce: Sekce "O nás"
+     ==============================================================================
+  */
+
+  .onas-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  section#onas img {
+    max-width: 80%;
+    min-width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+  /* ==============================================================================
+     Sekce: Filmový pás
+     ==============================================================================
+  */
+  .film-strip {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-image: none;
+  }
+  .photo-container {
+    width: 100%;
+    box-shadow: none;
+  }
+  .photo-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  /* ==============================================================================
+     Sekce: Filmové karty
+     ==============================================================================
+  */
+  .gallery {
+    justify-content: center;
+  }
+  .film-card {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .film-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  /* ==============================================================================
+     Sekce: Rezervační formulář
+     ==============================================================================
+  */
+  #reservation-section {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+  }
+  .reservation-container {
+    padding: 0;
+  }
+  #reservation-form {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    border-radius: 10px;
+  }
+  .input-container {
+    justify-content: center;
+  }
+  .input-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  input {
+    width: 90%;
+    margin: 5px auto;
+  }
+  /* ==============================================================================
+     Sekce: Kontakt a Mapa
+     ==============================================================================
+  */
+  section#kontakt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Kontakt info */
+  .kontakt-info {
+    width: 90%;
+    min-width: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+  }
+  /* Mapa */
+  #map {
+    width: 100%;
+    height: 300px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  /* ==============================================================================
+     Sekce: Tlačítko "Scroll to Top"
+     ==============================================================================
+  */
+  .scroll-top {
+    width: 60px;
+    height: 60px;
+    bottom: 10px;
+    right: 20px;
+  }
+
+  .scroll-top img {
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  /* ==============================================================================
+     Sekce: Footer
+     ==============================================================================
+  */
+  footer {
+    font-size: 13px;
+  }
+}
