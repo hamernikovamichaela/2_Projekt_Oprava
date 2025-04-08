@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <!-- Michaela Hamerníková -->
+  <!-- hamernikovamichaela@gmail.com -->
+  <!-- Michaela H. -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kino Lumina</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="query.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="content-container">
+      <header>
+        <div class="header-left">
+          <img
+            src="./img/kino_lumina_logo_light.png"
+            alt="Logo Kina Lumina Light"
+            class="logo light-logo"
+          />
+          <img
+            src="./img/kino_lumina_logo_dark.png"
+            alt="Logo Kina Lumina Dark"
+            class="logo dark-logo"
+          />
+          <h1>Kino Lumina</h1>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="#onas">O nás</a></li>
+            <li><a href="#nabidka">Nabídka filmů</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+          <div class="navigation__icon">
+            <img
+              class="hamburger-icon"
+              src="./icons/Hamburger_icon_white.svg.png"
+              alt="Menu otevřít"
+            />
+            <img
+              class="close-icon"
+              src="./icons/křížek.JPG"
+              alt="Menu zavřít"
+            />
+          </div>
+        </nav>
+
+        <button id="theme-toggle">🌞</button>
+      </header>
+      <section id="onas">
+        <div class="onas-content">
+          <img src="./img/kino_lumina.jpg" alt="Kino Lumina" />
+          <div>
+            <h2>Objevte kouzlo filmového světa!</h2>
+            <p>
+              Vstupte do magického světa filmu v Kině Lumina – místě, kde se
+              příběhy stávají skutečností a každý filmový večer se mění v
+              nezapomenutelný zážitek! Užijte si nejnovější filmové trháky i
+              nadčasové klasiky v prostředí, které vám nabídne maximální pohodlí
+              a jedinečnou atmosféru. Luxusní sedačky, špičkový obraz a dokonalý
+              zvuk vás pohltí do děje každého filmu. Nechte se unést emocemi,
+              napětím i smíchem – ať už přijdete sami, s přáteli nebo s rodinou,
+              Kino Lumina je tím pravým místem pro každého milovníka filmů! 🎬
+              Přijďte si užít film, který vás pohltí! 🍿
+            </p>
+          </div>
+        </div>
+        <div class="film-strip">
+          <div class="photo-container">
+            <img src="./img/kino.jpg" alt="Film 1" class="photo" />
+          </div>
+          <div class="photo-container">
+            <img src="./img/Návštěvníci.jpg" alt="Film 2" class="photo" />
+          </div>
+          <div class="photo-container">
+            <img src="./img/kino_sál.jpg" alt="Film 3" class="photo" />
+          </div>
+        </div>
+      </section>
+      <section id="nabidka">
+        <h2>Nabídka filmů</h2>
+        <div class="gallery">
+          <div class="film-card">
+            <img
+              src="./img/Bridget Jonesová.jpg"
+              alt="Bridget Jonesová: Láskou šílená"
+            />
+            <h3>Bridget Jonesová: Láskou šílená</h3>
+            <p class="film-time">Datum a čas projekce: 25. 3. 2025, 19:00</p>
+            <p class="film-price" data-price="200">Cena: 200 Kč</p>
+            <button
+              class="reserve-btn"
+              data-movie="Bridget Jonesová: Láskou šílená"
+              data-time="25. 3. 2025, 19:00"
+            >
+              Rezervovat vstupenky
+            </button>
+          </div>
+          <div class="film-card">
+            <img src="./img/Mickey 17.jpg" alt="Mickey 17" />
+            <h3>Mickey 17</h3>
+            <p class="film-time">Datum a čas projekce: 26. 3. 2025, 18:30</p>
+            <p class="film-price" data-price="250">Cena: 250 Kč</p>
+            <button
+              class="reserve-btn"
+              data-movie="Mickey 17"
+              data-time="26. 3. 2025, 18:30"
+            >
+              Rezervovat vstupenky
+            </button>
+          </div>
+          <div class="film-card">
+            <img src="./img/Novokain.jpg" alt="Novokain" />
+            <h3>Novokain</h3>
+            <p class="film-time">Datum a čas projekce: 27. 3. 2025, 21:00</p>
+            <p class="film-price" data-price="220">Cena: 220 Kč</p>
+            <button
+              class="reserve-btn"
+              data-movie="Novokain"
+              data-time="27. 3. 2025, 21:00"
+            >
+              Rezervovat vstupenky
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="reservation-section" class="reservation-container">
+        <div id="reservation-form" class="hidden">
+          <h3>Rezervace vstupenek</h3>
+          <p id="selected-movie"></p>
+          <p id="selected-time"></p>
+          <p id="film-price"></p>
+
+          <div class="input-container">
+            <div class="input-wrapper">
+              <input type="text" placeholder="Jméno" required />
+              <div class="error-message" id="name-error"></div>
+            </div>
+
+            <div class="input-wrapper">
+              <input type="text" placeholder="Příjmení" required />
+              <div class="error-message" id="surname-error"></div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-wrapper">
+              <input type="email" placeholder="Email" required />
+              <div class="error-message" id="email-error"></div>
+            </div>
+
+            <div class="input-wrapper">
+              <input type="email" placeholder="Potvrďte e-mail" required />
+              <div class="error-message" id="confirm-email-error"></div>
+            </div>
+          </div>
+          <div class="input-container">
+            <div class="input-wrapper">
+              <input type="password" placeholder="Heslo" required />
+              <div class="error-message" id="password-error"></div>
+            </div>
+            <div class="input-wrapper">
+              <input type="password" placeholder="Potvrďte heslo" required />
+              <div class="error-message" id="confirm-password-error"></div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-wrapper">
+              <input
+                type="number"
+                id="ticket-count"
+                placeholder="Počet vstupenek"
+                required
+                min="1"
+              />
+              <div class="error-message" id="ticket-error"></div>
+            </div>
+
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="total-price"
+                readonly
+                placeholder="Celková cena: 0 Kč"
+              />
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button type="button">Rezervovat</button>
+            <button type="button">Zrušit</button>
+          </div>
+        </div>
+      </section>
+      <section id="kontakt" class="kontakt-container">
+        <div class="kontakt-info">
+          <h2>Kontakt</h2>
+          <p><strong>Kino Lumina</strong></p>
+          <p>📍 Adresa: Náměstí filmových hvězd 12, 110 00 Praha</p>
+          <p>📞 Telefon: +420 234 567 890</p>
+          <p>
+            ✉️ E-mail:
+            <a href="mailto:info@kinolumina.cz">info@kinolumina.cz</a>
+          </p>
+          <p>
+            🌐 Web:
+            <a href="https://www.kinolumina.cz" target="_blank"
+              >www.kinolumina.cz</a
+            >
+          </p>
+          <p>📅 Otevírací doba:</p>
+          <ul>
+            <li>Pondělí - Pátek: 14:00 - 23:00</li>
+            <li>Sobota - Neděle: 10:00 - 23:30</li>
+          </ul>
+        </div>
+        <div id="map"></div>
+      </section>
+      <button id="scrollTopBtn" class="scroll-top">
+        <img src="./icons/šipka pro posun.png" alt="Šipka nahoru" />
+      </button>
+      <footer>
+        <p>&copy; 2025 Kino Lumina | Všechna práva vyhrazena</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
